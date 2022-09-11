@@ -23,16 +23,6 @@ fi
 if [ ! -f "wp-config.php" ]; then
 	cp /config/wp-config ./wp-config.php
 
-# 	if [[ "$WP_ADMIN_USER" == *"admin"* ]]; then
-# 		printf "WP_ADMIN_USER must not contain `admin`\n" "$WP_ADMIN_USER"
-# 		exit 1
-# 	fi
-
-# 	if [[ "$WP_ADMIN_USER" == *"Admin"* ]]; then
-# 		printf "WP_ADMIN_USER must not contain `Admin`\n" "$WP_ADMIN_USER"
-# 		exit 1
-# 	fi
-
 	sleep 5;
 	if ! mysqladmin -h $MARIADB_HOST -u $MARIADB_USER \
 		--password=$MARIADB_PWD --wait=60 ping > /dev/null; then
